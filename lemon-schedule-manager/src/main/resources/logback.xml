@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%p] [%c][line:%line] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/manager.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%p] [%c][line:%line] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.apache.curator" level="WARN" />
+    <logger name="org.apache.zookeeper" level="WARN" />
+    <logger name="com.zaxxer.hikari" level="ERROR"/>
+    <logger name="slick.compiler" level="ERROR"/>
+    <logger name="slick.relational" level="ERROR"/>
+    <logger name="slick.basic.BasicBackend" level="ERROR"/>
+    <logger name="slick.jdbc.JdbcBackend" level="WARN"/>
+    <logger name="com.gabry.job.manager" level="DEBUG"/>
+    <logger name="akka.cluster.metrics" level="INFO"/>
+    <logger name="akka.remote.transport" level="INFO"/>
+    <logger name="com.gabry.job.manager.actor" level="DEBUG"/>
+    <logger name="akka.serialization.Serialization" level="WARN"/>
+    <logger name="slick.util.ManagedArrayBlockingQueue" level="WARN"/>
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>

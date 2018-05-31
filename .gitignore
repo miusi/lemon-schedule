@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+/.idea
+logs
+target
+*.iml
+/*.zip
+/distribute/lib
+=======
+*.class
+*.log
+>>>>>>> b86d57c694fef7828b0ca1ddeefc5d447dda898a
